@@ -1,0 +1,175 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Phòng Ban</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/libs/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+</head>
+<body style="width:100%;height:100%">
+    @model HPDQ_Project.Models.PhongBanValidation
+    <div class="card mb-4">
+        <div class="card-header">
+       
+            <a href="#" onclick="AddNew(0)" class="btn btn-primary btn-sm pull-right" style="float:right"><i class="fa fa-plus">&nbsp;</i>&nbsp;Thêm mới</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="table" width="100%" cellspacing="0">
+                    <thead class="thead-light">
+                        <tr>
+                            <th width="50px" class="text-center">STT</th>
+                            <th width="160px" class="text-center">Thao tác</th>
+                            <th>Tên phòng ban</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="SetList">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @*Create A Popup Modal With Registration Form For Add Or Edit Record*@
+
+    <div class="modal fade" id="MyModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="ModalTitle"></h5>
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                </div>
+                <div class="modal-body">
+                    <form id="form">
+                        <fieldset id="SubmitForm">
+                            @Html.HiddenFor(m => m.MaPB, new { @id = "MaPB" })
+
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputFirstName">Tên phòng ban</label>
+                                @Html.TextBoxFor(m => m.TenPB, new { @id = "TenPB", @class = "form-control", @placeholder = "Tên phòng ban" })
+                                <div id="show_error_Ten"></div>
+                            </div>
+                            <div class="form-group">
+                                <a href="#" class="btn btn-primary" id="SaveRecord">Lưu</a>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*Create A PopUp Modal For DeleteConfirmation*@
+
+    <div class="modal fade" id="DeleteConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h6>Bạn có muốn xóa bản ghi này không ?</h6>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-primary" data-dismiss="modal" id="r">Hủy</a>
+                    <a href="#" class="btn btn-danger" onclick="ConfirmDelete()">Đồng ý</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $("#LoadingStatus").html("Loading....");
+        $.get("/Department/GetList", null, DataBind);
+        function DataBind(PBList) {
+            var SetData = $("#SetList");
+            var RowNo = 1;
+            for (var i = 0; i < PBList.length; i++) {
+                var Data = "<tr class='row_" + PBList[i].MaPB + "'>" +
+                    "<td class = 'text-center'>" + (RowNo++) + "</td>" +
+                    "<td class='text-center'>" + "<a href='#' onclick='EditRecord(" + PBList[i].MaPB + ")' ><i class='fa fa-edit'></i>&nbsp;Sửa&nbsp;</a>&nbsp;|&nbsp;<a href='#' onclick='DeleteRecord(" + PBList[i].MaPB + ")'><i class='fa fa-trash'></i>&nbsp;Xóa</a>" + "</td>" +
+                    "<td>" + PBList[i].TenPB + "</td>" +
+                    "</tr>";
+                SetData.append(Data);
+                $("#LoadingStatus").html(" ");
+
+            }
+        }
+
+        //Show The Popup Modal For Add New Student
+
+        function AddNew(PBID) {
+            $("#form")[0].reset();
+            $("#ModalTitle").html("Thêm mới phòng ban");
+            $("#PBID").val(0);
+            $("#MyModal").modal();
+
+        }
+
+        //Show The Popup Modal For Edit Student Record
+
+        function EditRecord(PBID) {
+            var url = "/Department/GetById?PBID=" + PBID;
+            $("#ModalTitle").html("Cập nhật thông tin phòng ban");
+            $("#MyModal").modal();
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function (data) {
+                    var obj = JSON.parse(data);
+                    $("#MaPB").val(obj.MaPB);
+                    $("#TenPB").val(obj.TenPB);
+                }
+            })
+        }
+
+        $("#SaveRecord").click(function () {
+            var data = $("#SubmitForm").serialize();
+            var ten = $('#TenPB').val();
+            if (ten == "") {
+                $('#show_error_Ten').html('Nhập tên phòng ban!');
+                $('#show_error_Ten').css('color', 'red');
+                return false;
+            }
+            if (ten != "") {
+                $.ajax({
+                    type: "Post",
+                    url: "/Department/SaveDataInDatabase",
+                    data: data,
+                    success: function (result) {
+                        alert("Đã lưu thành công!..");
+                        window.location.href = "/Department/index";
+                        $("#MyModal").modal("hide");
+
+                    }
+                })
+            }
+        })
+
+        //Show The Popup Modal For DeleteComfirmation
+        var DeleteRecord = function (PBID) {
+            $("#MaPB").val(PBID);
+            $("#DeleteConfirmation").modal("show");
+        }
+        var ConfirmDelete = function () {
+            var PBID = $("#MaPB").val();
+            $.ajax({
+                type: "POST",
+                url: "/Department/DeleteRecord?PBID=" + PBID,
+                success: function (result) {
+                    $("#DeleteConfirmation").modal("hide");
+                    $(".row_" + PBID).remove();
+                }
+            })
+        }
+    </script>
+
+</body>
+</html>

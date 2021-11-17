@@ -1,0 +1,38 @@
+﻿@model HPDQ_Project.Models.ChucVu
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <link href="~/Assets/libs/css/style.css" rel="stylesheet" />
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="ModalTitle"></h5>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body">
+                <form id="form">
+                    <fieldset id="SubmitForm">
+                        @Html.HiddenFor(model => model.MaCV)
+                        <div class="form-group">
+                            <label class="small mb-1" for="inputFirstName">Tên chức vụ</label>
+                            @Html.EditorFor(model => model.TenCV, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenCV, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Cập nhập" class="btn btn-primary" />
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+}
+
+

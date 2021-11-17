@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HPDQModelStoreContainer" CdmEntityContainer="HPDQEntities">
+    <EntitySetMapping Name="ChucVus">
+      <EntityTypeMapping TypeName="HPDQModel.ChucVu">
+        <MappingFragment StoreEntitySet="ChucVu">
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DangKies">
+      <EntityTypeMapping TypeName="HPDQModel.DangKy">
+        <MappingFragment StoreEntitySet="DangKy">
+          <ScalarProperty Name="TKID" ColumnName="TKID" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DanhBas">
+      <EntityTypeMapping TypeName="HPDQModel.DanhBa">
+        <MappingFragment StoreEntitySet="DanhBa">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="SoMayLe" ColumnName="SoMayLe" />
+          <ScalarProperty Name="Vitri" ColumnName="Vitri" />
+          <ScalarProperty Name="LoaiDB" ColumnName="LoaiDB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GioiTinhs">
+      <EntityTypeMapping TypeName="HPDQModel.GioiTinh">
+        <MappingFragment StoreEntitySet="GioiTinh">
+          <ScalarProperty Name="MaGT" ColumnName="MaGT" />
+          <ScalarProperty Name="TenGT" ColumnName="TenGT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="HPDQModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="MaMenu" ColumnName="MaMenu" />
+          <ScalarProperty Name="TenMenu" ColumnName="TenMenu" />
+          <ScalarProperty Name="LienKet" ColumnName="LienKet" />
+          <ScalarProperty Name="MaMenuCha" ColumnName="MaMenuCha" />
+          <ScalarProperty Name="ThuTu" ColumnName="ThuTu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="HPDQModel.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenNVNONE" ColumnName="TenNVNONE" />
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="MaGT" ColumnName="MaGT" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NgayVaoLam" ColumnName="NgayVaoLam" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanMems">
+      <EntityTypeMapping TypeName="HPDQModel.PhanMem">
+        <MappingFragment StoreEntitySet="PhanMem">
+          <ScalarProperty Name="MaPM" ColumnName="MaPM" />
+          <ScalarProperty Name="TenPM" ColumnName="TenPM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhongBans">
+      <EntityTypeMapping TypeName="HPDQModel.PhongBan">
+        <MappingFragment StoreEntitySet="PhongBan">
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuyenDangNhaps">
+      <EntityTypeMapping TypeName="HPDQModel.QuyenDangNhap">
+        <MappingFragment StoreEntitySet="QuyenDangNhap">
+          <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+          <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HPDQModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoans">
+      <EntityTypeMapping TypeName="HPDQModel.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="TKID" ColumnName="TKID" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="MaPM" ColumnName="MaPM" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThaoTacs">
+      <EntityTypeMapping TypeName="HPDQModel.ThaoTac">
+        <MappingFragment StoreEntitySet="ThaoTac">
+          <ScalarProperty Name="MaTT" ColumnName="MaTT" />
+          <ScalarProperty Name="TenTT" ColumnName="TenTT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinhTrangs">
+      <EntityTypeMapping TypeName="HPDQModel.TinhTrang">
+        <MappingFragment StoreEntitySet="TinhTrang">
+          <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+          <ScalarProperty Name="TenTinhTrang" ColumnName="TenTinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrangThais">
+      <EntityTypeMapping TypeName="HPDQModel.TrangThai">
+        <MappingFragment StoreEntitySet="TrangThai">
+          <ScalarProperty Name="IDTT" ColumnName="IDTT" />
+          <ScalarProperty Name="TenTrangThai" ColumnName="TenTrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Viev_NhanVien">
+      <EntityTypeMapping TypeName="HPDQModel.Viev_NhanVien">
+        <MappingFragment StoreEntitySet="Viev_NhanVien">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="Ho_Ten" ColumnName="Ho Ten" />
+          <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NgayVaoLam" ColumnName="NgayVaoLam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Chucvu_delete" FunctionName="HPDQModel.Store.Chucvu_delete" />
+    <FunctionImportMapping FunctionImportName="Chucvu_insert" FunctionName="HPDQModel.Store.Chucvu_insert" />
+    <FunctionImportMapping FunctionImportName="Chucvu_update" FunctionName="HPDQModel.Store.Chucvu_update" />
+    <FunctionImportMapping FunctionImportName="Dangky_delete" FunctionName="HPDQModel.Store.Dangky_delete" />
+    <FunctionImportMapping FunctionImportName="Dangky_insert" FunctionName="HPDQModel.Store.Dangky_insert" />
+    <FunctionImportMapping FunctionImportName="Dangky_update" FunctionName="HPDQModel.Store.Dangky_update" />
+    <FunctionImportMapping FunctionImportName="Dangky_update_password" FunctionName="HPDQModel.Store.Dangky_update_password" />
+    <FunctionImportMapping FunctionImportName="Menu_delete" FunctionName="HPDQModel.Store.Menu_delete" />
+    <FunctionImportMapping FunctionImportName="Menu_insert" FunctionName="HPDQModel.Store.Menu_insert" />
+    <FunctionImportMapping FunctionImportName="Menu_update" FunctionName="HPDQModel.Store.Menu_update" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_danhsach" FunctionName="HPDQModel.Store.Nhanvien_danhsach">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.Nhanvien_danhsach_Result">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="NgayVaoLam" ColumnName="NgayVaoLam" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Nhanvien_delete" FunctionName="HPDQModel.Store.Nhanvien_delete" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_DO" FunctionName="HPDQModel.Store.Nhanvien_DO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.Nhanvien_DO_Result">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TenGT" ColumnName="TenGT" />
+          <ScalarProperty Name="NgayVaoLam" ColumnName="NgayVaoLam" />
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="MaGT" ColumnName="MaGT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Nhanvien_DO_DanhBa" FunctionName="HPDQModel.Store.Nhanvien_DO_DanhBa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.Nhanvien_DO_DanhBa_Result">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TenGT" ColumnName="TenGT" />
+          <ScalarProperty Name="NgayVaoLam" ColumnName="NgayVaoLam" />
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="MaGT" ColumnName="MaGT" />
+          <ScalarProperty Name="SoMayLe" ColumnName="SoMayLe" />
+          <ScalarProperty Name="Vitri" ColumnName="Vitri" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Nhanvien_insert" FunctionName="HPDQModel.Store.Nhanvien_insert" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_insert_API" FunctionName="HPDQModel.Store.Nhanvien_insert_API" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_insert_danhba" FunctionName="HPDQModel.Store.Nhanvien_insert_danhba" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_insert_Import" FunctionName="HPDQModel.Store.Nhanvien_insert_Import" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_search" FunctionName="HPDQModel.Store.Nhanvien_search">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.Nhanvien_search_Result">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Nhanvien_search_danhba" FunctionName="HPDQModel.Store.Nhanvien_search_danhba">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.Nhanvien_search_danhba_Result">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Nhanvien_update" FunctionName="HPDQModel.Store.Nhanvien_update" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_update_API" FunctionName="HPDQModel.Store.Nhanvien_update_API" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_update_danhba" FunctionName="HPDQModel.Store.Nhanvien_update_danhba" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_update_Email" FunctionName="HPDQModel.Store.Nhanvien_update_Email" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_update_import" FunctionName="HPDQModel.Store.Nhanvien_update_import" />
+    <FunctionImportMapping FunctionImportName="Phanmem_delete" FunctionName="HPDQModel.Store.Phanmem_delete" />
+    <FunctionImportMapping FunctionImportName="Phanmem_insert" FunctionName="HPDQModel.Store.Phanmem_insert" />
+    <FunctionImportMapping FunctionImportName="Phanmem_update" FunctionName="HPDQModel.Store.Phanmem_update" />
+    <FunctionImportMapping FunctionImportName="Phanquyen_delete" FunctionName="HPDQModel.Store.Phanquyen_delete" />
+    <FunctionImportMapping FunctionImportName="Phanquyen_insert" FunctionName="HPDQModel.Store.Phanquyen_insert" />
+    <FunctionImportMapping FunctionImportName="Phanquyen_update" FunctionName="HPDQModel.Store.Phanquyen_update" />
+    <FunctionImportMapping FunctionImportName="Phongban_delete" FunctionName="HPDQModel.Store.Phongban_delete" />
+    <FunctionImportMapping FunctionImportName="Phongban_insert" FunctionName="HPDQModel.Store.Phongban_insert" />
+    <FunctionImportMapping FunctionImportName="Phongban_update" FunctionName="HPDQModel.Store.Phongban_update" />
+    <FunctionImportMapping FunctionImportName="Quyendangnhap_delete" FunctionName="HPDQModel.Store.Quyendangnhap_delete" />
+    <FunctionImportMapping FunctionImportName="Quyendangnhap_insert" FunctionName="HPDQModel.Store.Quyendangnhap_insert" />
+    <FunctionImportMapping FunctionImportName="Quyendangnhap_update" FunctionName="HPDQModel.Store.Quyendangnhap_update" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HPDQModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HPDQModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HPDQModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HPDQModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HPDQModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HPDQModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HPDQModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="Taikhoan_danhsach" FunctionName="HPDQModel.Store.Taikhoan_danhsach">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.Taikhoan_danhsach_Result">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="MaPM" ColumnName="MaPM" />
+          <ScalarProperty Name="TenPM" ColumnName="TenPM" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="TKID" ColumnName="TKID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Taikhoan_delete" FunctionName="HPDQModel.Store.Taikhoan_delete" />
+    <FunctionImportMapping FunctionImportName="Taikhoan_delete_MaNV" FunctionName="HPDQModel.Store.Taikhoan_delete_MaNV" />
+    <FunctionImportMapping FunctionImportName="Taikhoan_insert" FunctionName="HPDQModel.Store.Taikhoan_insert" />
+    <FunctionImportMapping FunctionImportName="Taikhoan_lock" FunctionName="HPDQModel.Store.Taikhoan_lock" />
+    <FunctionImportMapping FunctionImportName="Taikhoan_unlock" FunctionName="HPDQModel.Store.Taikhoan_unlock" />
+    <FunctionImportMapping FunctionImportName="Taikhoan_update" FunctionName="HPDQModel.Store.Taikhoan_update" />
+    <FunctionImportMapping FunctionImportName="Thaotac_delete" FunctionName="HPDQModel.Store.Thaotac_delete" />
+    <FunctionImportMapping FunctionImportName="Thaotac_insert" FunctionName="HPDQModel.Store.Thaotac_insert" />
+    <FunctionImportMapping FunctionImportName="Thaotac_update" FunctionName="HPDQModel.Store.Thaotac_update" />
+    <FunctionImportMapping FunctionImportName="thongtin_danhba" FunctionName="HPDQModel.Store.thongtin_danhba">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.thongtin_danhba_Result">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="SoMayLe" ColumnName="SoMayLe" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="Vitri" ColumnName="Vitri" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="thongtin_danhba_DC" FunctionName="HPDQModel.Store.thongtin_danhba_DC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.thongtin_danhba_DC_Result">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="SoMayLe" ColumnName="SoMayLe" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="Vitri" ColumnName="Vitri" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="thongtin_danhba_NV" FunctionName="HPDQModel.Store.thongtin_danhba_NV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.thongtin_danhba_NV_Result">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="SoMayLe" ColumnName="SoMayLe" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="Vitri" ColumnName="Vitri" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="thongtin_taikhoan" FunctionName="HPDQModel.Store.thongtin_taikhoan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQModel.thongtin_taikhoan_Result">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="TenPM" ColumnName="TenPM" />
+          <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
+          <ScalarProperty Name="TenTinhTrang" ColumnName="TenTinhTrang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,38 @@
+﻿
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <h5 id="ModalTitle"></h5>
+            <a href="#" class="close" data-dismiss="modal">&times;</a>
+
+        </div>
+      
+            <ul class="nav nav-tabs PhoneBook" role="tablist">
+                <li role="presentation">
+                    <a href="#uploadTab" class="active" aria-controls="uploadTab" role="tab" data-toggle="tab">Danh bạ nhân viên</a>
+
+                </li>
+                <li role="presentation">
+                    <a href="#browseTab" aria-controls="browseTab" role="tab" data-toggle="tab">Danh bạ dùng chung</a>
+                </li>
+            </ul>
+        
+       
+        <div role="tabpanel">
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="uploadTab">
+                    @{ Html.RenderAction("UpdatePhoneBook", "PhoneBook"); }
+                </div>
+                <div role="tabpanel" class="tab-pane" id="browseTab">
+                    @{ Html.RenderAction("Create", "PhoneBook"); }
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+

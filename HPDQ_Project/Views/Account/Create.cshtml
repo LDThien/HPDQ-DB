@@ -1,0 +1,166 @@
+﻿@model HPDQ_Project.Models.TaiKhoanValidation
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<style>
+
+    /* a:link, a:active, a:visited, a:hover {
+            text-decoration: none;
+            color: black;
+        }*/
+    /*--- DROPDOWN ---*/
+    ul#selectedValue {
+        list-style: none;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        background-color: #f2f2f2;
+    }
+
+        ul#selectedValue li.ui-menu-item {
+            padding: 2px 5px;
+        }
+
+            ul#selectedValue li.ui-menu-item:hover {
+                background-color: #ccc
+            }
+</style>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="ModalTitle"></h5>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger", placeholder = "Nhập MãNV" })
+                <fieldset id="SubmitForm">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputFirstName">Mã NV</label>
+                                @Html.TextBox("MaNV", null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
+                                <ul id="selectedValue"></ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputFirstName">Họ tên</label>
+                                @Html.EditorFor(model => model.TenNV, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập họ tên", @id = "Hoten", @readonly = "true" } })
+                                @Html.ValidationMessageFor(model => model.TenNV, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputFirstName">Tài khoản</label>
+                                @Html.EditorFor(model => model.TenTK, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập tài khoản" } })
+                                @Html.ValidationMessageFor(model => model.TenTK, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputFirstName">Trạng thái</label>
+                                @Html.DropDownList("TrangThai", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputConfirmPassword">Phần mềm</label>
+                                @Html.DropDownListFor(model => model.MaPM, ViewBag.PMList as SelectList, new { @id = "MaPM", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MaPM, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputPassword">Tình trạng</label>
+                                @Html.DropDownListFor(m => m.MaTinhTrang, ViewBag.TTList as SelectList, new { @id = "MaTinhTrang", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MaTinhTrang, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="small mb-1" for="inputLastName">Ngày cấp</label>
+                        @Html.TextBox("NgayCap", null, new { @id = "NgayCap", @type = "date", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.NgayCap, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label class="small mb-1" for="inputConfirmPassword">Ghi chú</label>
+                        @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập ghi chú" } })
+                        @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Thêm mới" class="btn btn-primary" id="btncreate" />
+                    </div>
+                </fieldset>
+
+            </div>
+        </div>
+    </div>
+    <script>
+       
+         var textbox;
+        var selectValue;
+        $(function () {
+            textbox = $("#MaNV");
+            selectValue = $('ul#selectedValue');
+            textbox.on("input", function () {
+                getAutoComplete(textbox.val());
+            });
+        });
+        function getAutoComplete(search) {
+            if (search != '') {
+                var uri = "/Employees/GetNhanvien";
+                $.getJSON(uri, { search: search })
+                    .done(function (data) {
+                        selectValue.html("");
+                        var count = 0;
+                        $.each(data, function (key, item) {
+                            //$('<option>').text(item).appendTo('#selectedValue');
+                            var li = $('<li/>').addClass('ui-menu-item').attr('role', 'menuitem')
+                                .html("<a href='#' onclick=\"setText('" + item.MaNV + "','" + item.TenNV+"')\">" + item.MaNV + " - " + item.TenNV + "</a> <div class=\"modal fade\" id=\"myModal\" role=\"dialog\" data-url='@Url.Action("Create","Employees")'></div>")
+                                .appendTo(selectValue);
+
+                            count++;
+                        });
+                    });
+            }
+            else { selectValue.html("");}
+        }
+        function setText(MaNV,TenNV) {
+            textbox.val(MaNV);
+            $("#Hoten").val(TenNV);
+            selectValue.html("");
+            
+        }
+        $('#btncreate').click(function () {
+            if ($('#MaNV').val().length != 9) {
+                alert('Vui lòng nhập Mã NV: 9 ký tự');
+                return false;
+            }
+            else {
+                if ($('#MaNV').val().substr(0, 4) != 'HPDQ') {
+                    alert('Mã NV bắt đầu: HPDQ');
+                    return false;
+                }
+            }
+        });
+
+    </script>
+}
+
+

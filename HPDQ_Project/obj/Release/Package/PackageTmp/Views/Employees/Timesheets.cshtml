@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Timesheets</title>
+    <link href="~/Assets/libs/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                Mã NV
+            </th>
+            <th>
+                Tên NV
+            </th>
+            <th>Ngày vào chấm công</th>
+            <th>Thời gian vào chấm công </th>
+            <th>Ngày ra chấm công</th>
+            <th>Thời gian ra chấm công </th>
+            <th>
+                BP/NM
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.EMP_ID
+                </td>
+                <td>@item.FULL_NAME</td>
+                <td>@item.DATE_IN</td>
+                <td>@item.TIME_IN</td>
+                <td>@item.DATE_OUT</td>
+                <td>@item.TIME_OUT</td>
+                <td>@item.ORG_NM</td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

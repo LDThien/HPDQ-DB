@@ -1,0 +1,154 @@
+.dynamic-tabs {
+	width: 100%;
+	float: left;
+}
+.dynamic-tabs-container {
+	position: relative;
+}
+.dynamic-tabs-container .dynamic-tabs {
+    padding-right: 100px;
+}
+.dynamic-tabs-container .tabs-dropdown {
+    position: fixed;
+    right: 120px;
+    margin-right: 0 !important;
+}
+.dynamic-tabs-container .tabs-dropdown.navbar-nav {
+    margin: 0 !important;
+}
+@media only screen and (max-width: 767px) {
+    .dynamic-tabs-container .tabs-dropdown .dropdown-menu {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        bottom: 20px;
+        left: 20px;
+        padding-top: 50px;
+	}
+    .dynamic-tabs-container .tabs-dropdown .dropdown-menu .dropdown-header {
+        position: fixed;
+        left: 21px;
+        right: 21px;
+        background: #FFF;
+        margin-top: -50px;
+        padding-top: 18px;
+        border-radius: 4px 4px 0 0;
+	}
+    .dynamic-tabs-container .tabs-dropdown .dropdown-menu .close {
+        position: absolute;
+        top: 14px;
+        right: 20px;
+	}
+    .dynamic-tabs-container .tabs-dropdown .dropdown-menu .divider {
+          margin: 0;
+	}
+	.dynamic-tab {
+		width: 100%;
+	}
+}
+.dynamic-tab> .icon{
+	color: #ddd;
+    right: 1px;
+    top: 3px;
+    position: absolute;
+	border: solid 1px #eeeeee;
+    padding: 0em .12em .05em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.dynamic-tab> .icon:hover{
+	color:red;
+    right: 1px;
+    top: 3px;
+    position: absolute;
+	border: solid 1px #eeeeee;
+    padding: 0em .12em .05em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.dynamic-tabs-container .tabs-dropdown .dropdown-toggle {
+    position: relative;
+    display: block;
+    padding: 0;
+	color: white;
+}
+.dynamic-tabs-container .tabs-dropdown .dropdown-toggle .count {
+    margin-right: 5px;
+}
+.dynamic-tabs-container .tabs-dropdown .dropdown-toggle .caret {
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid;
+    margin-left: 0;
+    vertical-align: initial;
+}
+.dynamic-tabs-container .toolbox {
+    position: fixed;
+    right: 0;
+    margin-right: 0 !important;
+	    border-radius: 0px 4px 0 0;
+	padding: 3px 0px;
+    border-left: solid 1px #eeeeee;
+}
+
+.dynamic-tabs-container >.toolbox>a {
+   padding: 0;
+border: solid 1px #eeeeee;
+    padding: .4em .25em .1em;
+	margin-left: 0.1em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.nav-pills{
+	background:#fff;
+    border-color: #CECECE;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+	-webkit-box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .125);
+    -moz-box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .125);
+    box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .125);
+}
+
+.nav-pills>li{
+	margin-left: 0px !important; 
+}
+.effect7
+{
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect7:before, .effect7:after
+{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.effect7:after
+{
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+.nav.navbar-nav.navbar-right.dropdown.tabs-dropdown {
+    padding: 5px 10px !important;
+}
+
+

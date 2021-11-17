@@ -1,0 +1,42 @@
+﻿@using HPDQ_Project.Models
+@model List<TaiKhoanValidation>
+@if (Model.Count > 0)
+{
+    <h3> <i class="fa fa-table"></i> Thông tin tài khoản</h3>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover" cellspacing="0">
+            <thead class="thead-light">
+                <tr>
+                    <td class="text-center">TT</td>
+                    <td>Tên tài khoản</td>
+                    <td>Phần mềm</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-center">
+                                @if (item.TrangThai == 0)
+                                {
+                                    <a id="btn_lock_@item.TKID" href="#" title="Lock"><i class="fa fa-unlock-alt"></i> </a>
+                                }
+                                else
+                                {
+                                    <a id="btn_lock_@item.TKID" href="#" title="Un lock"><i class="fa fa-lock"></i> </a>
+                                }
+                            </td>
+                            <td>@item.TenTK</td>
+                            <td>@item.TenPM</td>
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+}
+

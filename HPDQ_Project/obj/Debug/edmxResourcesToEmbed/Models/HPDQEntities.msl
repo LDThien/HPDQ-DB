@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HPDQ_ProjectdbcontextStoreContainer" CdmEntityContainer="HPDQEntities1">
+    <EntitySetMapping Name="ChucVus">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.ChucVu">
+        <MappingFragment StoreEntitySet="ChucVu">
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DangKies">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.DangKy">
+        <MappingFragment StoreEntitySet="DangKy">
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+          <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GioiTinhs">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.GioiTinh">
+        <MappingFragment StoreEntitySet="GioiTinh">
+          <ScalarProperty Name="MaGT" ColumnName="MaGT" />
+          <ScalarProperty Name="TenGT" ColumnName="TenGT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="MaMenu" ColumnName="MaMenu" />
+          <ScalarProperty Name="TenMenu" ColumnName="TenMenu" />
+          <ScalarProperty Name="LienKet" ColumnName="LienKet" />
+          <ScalarProperty Name="MaMenuCha" ColumnName="MaMenuCha" />
+          <ScalarProperty Name="ThuTu" ColumnName="ThuTu" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="SoMayLe" ColumnName="SoMayLe" />
+          <ScalarProperty Name="MaGT" ColumnName="MaGT" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NgayVaoLam" ColumnName="NgayVaoLam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanMems">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.PhanMem">
+        <MappingFragment StoreEntitySet="PhanMem">
+          <ScalarProperty Name="MaPM" ColumnName="MaPM" />
+          <ScalarProperty Name="TenPM" ColumnName="TenPM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanQuyens">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.PhanQuyen">
+        <MappingFragment StoreEntitySet="PhanQuyen">
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MaMenu" ColumnName="MaMenu" />
+          <ScalarProperty Name="MaTT" ColumnName="MaTT" />
+          <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhongBans">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.PhongBan">
+        <MappingFragment StoreEntitySet="PhongBan">
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuyenDangNhaps">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.QuyenDangNhap">
+        <MappingFragment StoreEntitySet="QuyenDangNhap">
+          <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+          <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoans">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="TKID" ColumnName="TKID" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="MaPM" ColumnName="MaPM" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThaoTacs">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.ThaoTac">
+        <MappingFragment StoreEntitySet="ThaoTac">
+          <ScalarProperty Name="MaTT" ColumnName="MaTT" />
+          <ScalarProperty Name="TenTT" ColumnName="TenTT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinhTrangs">
+      <EntityTypeMapping TypeName="HPDQ_Projectdbcontext.TinhTrang">
+        <MappingFragment StoreEntitySet="TinhTrang">
+          <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+          <ScalarProperty Name="TenTinhTrang" ColumnName="TenTinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Chucvu_delete" FunctionName="HPDQ_Projectdbcontext.Store.Chucvu_delete" />
+    <FunctionImportMapping FunctionImportName="Chucvu_insert" FunctionName="HPDQ_Projectdbcontext.Store.Chucvu_insert" />
+    <FunctionImportMapping FunctionImportName="Chucvu_update" FunctionName="HPDQ_Projectdbcontext.Store.Chucvu_update" />
+    <FunctionImportMapping FunctionImportName="Dangky_delete" FunctionName="HPDQ_Projectdbcontext.Store.Dangky_delete" />
+    <FunctionImportMapping FunctionImportName="Dangky_insert" FunctionName="HPDQ_Projectdbcontext.Store.Dangky_insert" />
+    <FunctionImportMapping FunctionImportName="Dangky_update" FunctionName="HPDQ_Projectdbcontext.Store.Dangky_update" />
+    <FunctionImportMapping FunctionImportName="Dangky_update_password" FunctionName="HPDQ_Projectdbcontext.Store.Dangky_update_password" />
+    <FunctionImportMapping FunctionImportName="Menu_delete" FunctionName="HPDQ_Projectdbcontext.Store.Menu_delete" />
+    <FunctionImportMapping FunctionImportName="Menu_insert" FunctionName="HPDQ_Projectdbcontext.Store.Menu_insert" />
+    <FunctionImportMapping FunctionImportName="Menu_update" FunctionName="HPDQ_Projectdbcontext.Store.Menu_update" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_delete" FunctionName="HPDQ_Projectdbcontext.Store.Nhanvien_delete" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_insert" FunctionName="HPDQ_Projectdbcontext.Store.Nhanvien_insert" />
+    <FunctionImportMapping FunctionImportName="Nhanvien_update" FunctionName="HPDQ_Projectdbcontext.Store.Nhanvien_update" />
+    <FunctionImportMapping FunctionImportName="Phanmem_delete" FunctionName="HPDQ_Projectdbcontext.Store.Phanmem_delete" />
+    <FunctionImportMapping FunctionImportName="Phanmem_insert" FunctionName="HPDQ_Projectdbcontext.Store.Phanmem_insert" />
+    <FunctionImportMapping FunctionImportName="Phanmem_update" FunctionName="HPDQ_Projectdbcontext.Store.Phanmem_update" />
+    <FunctionImportMapping FunctionImportName="Phanquyen_delete" FunctionName="HPDQ_Projectdbcontext.Store.Phanquyen_delete" />
+    <FunctionImportMapping FunctionImportName="Phanquyen_insert" FunctionName="HPDQ_Projectdbcontext.Store.Phanquyen_insert" />
+    <FunctionImportMapping FunctionImportName="Phanquyen_update" FunctionName="HPDQ_Projectdbcontext.Store.Phanquyen_update" />
+    <FunctionImportMapping FunctionImportName="Phongban_delete" FunctionName="HPDQ_Projectdbcontext.Store.Phongban_delete" />
+    <FunctionImportMapping FunctionImportName="Phongban_insert" FunctionName="HPDQ_Projectdbcontext.Store.Phongban_insert" />
+    <FunctionImportMapping FunctionImportName="Phongban_update" FunctionName="HPDQ_Projectdbcontext.Store.Phongban_update" />
+    <FunctionImportMapping FunctionImportName="Quyendangnhap_delete" FunctionName="HPDQ_Projectdbcontext.Store.Quyendangnhap_delete" />
+    <FunctionImportMapping FunctionImportName="Quyendangnhap_insert" FunctionName="HPDQ_Projectdbcontext.Store.Quyendangnhap_insert" />
+    <FunctionImportMapping FunctionImportName="Quyendangnhap_update" FunctionName="HPDQ_Projectdbcontext.Store.Quyendangnhap_update" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HPDQ_Projectdbcontext.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HPDQ_Projectdbcontext.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HPDQ_Projectdbcontext.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HPDQ_Projectdbcontext.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQ_Projectdbcontext.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HPDQ_Projectdbcontext.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQ_Projectdbcontext.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HPDQ_Projectdbcontext.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HPDQ_Projectdbcontext.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="Taikhoan_delete" FunctionName="HPDQ_Projectdbcontext.Store.Taikhoan_delete" />
+    <FunctionImportMapping FunctionImportName="Taikhoan_insert" FunctionName="HPDQ_Projectdbcontext.Store.Taikhoan_insert" />
+    <FunctionImportMapping FunctionImportName="Taikhoan_update" FunctionName="HPDQ_Projectdbcontext.Store.Taikhoan_update" />
+    <FunctionImportMapping FunctionImportName="Thaotac_delete" FunctionName="HPDQ_Projectdbcontext.Store.Thaotac_delete" />
+    <FunctionImportMapping FunctionImportName="Thaotac_insert" FunctionName="HPDQ_Projectdbcontext.Store.Thaotac_insert" />
+    <FunctionImportMapping FunctionImportName="Thaotac_update" FunctionName="HPDQ_Projectdbcontext.Store.Thaotac_update" />
+    <FunctionImportMapping FunctionImportName="thongtin_danhba" FunctionName="HPDQ_Projectdbcontext.Store.thongtin_danhba">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQ_Projectdbcontext.thongtin_danhba_Result">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="SoMayLe" ColumnName="SoMayLe" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="thongtin_taikhoan" FunctionName="HPDQ_Projectdbcontext.Store.thongtin_taikhoan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HPDQ_Projectdbcontext.thongtin_taikhoan_Result">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="TenPM" ColumnName="TenPM" />
+          <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
+          <ScalarProperty Name="TenTinhTrang" ColumnName="TenTinhTrang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

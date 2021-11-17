@@ -1,0 +1,327 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using HPDQ_Project.Models
+@{
+    HPDQEntities db = new HPDQEntities();
+}
+
+<section class="content" style="height:100%;margin-top:9px">
+    <div class="nav-tabs-custom" style="height:100% !important">
+
+        <ul id="mytabs" class="nav nav-pills effect7 dynamic-tabs">
+            <li class="dynamic-tab" id-content="m_0" tab-id="0">
+                <a href="#home" class="active show" data-toggle="pill">Home</a>
+                <i class="fa fa-times icon"></i>
+            </li>
+
+        </ul>
+
+        <div id="mytab_ctx" class="tab-content">
+            <div id="home" class="tab-pane fade in active show">
+                <div class="dashboard-hpdq">
+                    @{
+                        var datenow = DateTime.Now;
+                    }
+                    <div class="col-md-12"><div class="text-right text-danger" style="margin-bottom:10px">Cập nhập:  @datenow.ToString("dd/MM/yyyy")</div></div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <!-- ============================================================== -->
+                            <!-- sales -->
+                            <!-- ============================================================== -->
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                <div class="card border-3 border-top border-top-primary">
+                                    <div class="card-body">
+                                        <h5 class="text-muted">Nhân viên</h5>
+                                        <div class="metric-value d-inline-block">
+                                            @{
+                                                var count = db.NhanViens.Where(x => x.TrangThai == 1).ToList().Count;
+                                            }
+                                            <h1 class="mb-1">@count.ToString("##,###")</h1>
+                                          
+                                        </div>
+                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">3.86%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ============================================================== -->
+                            <!-- end sales -->
+                            <!-- ============================================================== -->
+                            <!-- ============================================================== -->
+                            <!-- new customer -->
+                            <!-- ============================================================== -->
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                <div class="card border-3 border-top border-top-primary">
+                                    <div class="card-body">
+                                        <h5 class="text-muted">Danh bạ</h5>
+                                        <div class="metric-value d-inline-block">
+                                            @{
+                                                var countdb = db.DanhBas.ToList().Count;
+                                            }
+                                            <h1 class="mb-1">@countdb.ToString("##,###")</h1>
+                                        </div>
+                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">2%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ============================================================== -->
+                            <!-- end new customer -->
+                            <!-- ============================================================== -->
+                            <!-- ============================================================== -->
+                            <!-- visitor -->
+                            <!-- ============================================================== -->
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                <div class="card border-3 border-top border-top-primary">
+                                    <div class="card-body">
+
+                                        <h5 class="text-muted">Email</h5>
+                                        <div class="metric-value d-inline-block">
+                                            @{
+                                                var countemail = db.NhanViens.Where(x => x.Email != null && x.Email != "" && x.TrangThai == 1).ToList().Count;
+                                            }
+                                            <h1 class="mb-1">@countemail.ToString("##,###")</h1>
+                                        </div>
+
+                                        @*<div class="float-right icon-circle-medium  icon-box-lg  bg-primary-light mt-1">
+                                <i class="fa fa-user fa-fw fa-sm text-primary"></i>
+                            </div>*@
+                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">4.2%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ============================================================== -->
+                            <!-- end visitor  -->
+                            <!-- ============================================================== -->
+                            <!-- ============================================================== -->
+                            <!-- total orders  -->
+                            <!-- ============================================================== -->
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                <div class="card border-3 border-top border-top-primary">
+                                    <div class="card-body">
+                                        <h5 class="text-muted">Voffice</h5>
+                                        <div class="metric-value d-inline-block">
+                                            @{
+                                                var countVoffice = db.TaiKhoans.Where(x => x.MaPM == 6).ToList().Count;
+                                            }
+                                            <h1 class="mb-1">@countVoffice.ToString("##,###")</h1>
+                                        </div>
+                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">4%</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ============================================================== -->
+                            <!-- end total orders  -->
+                            <!-- ============================================================== -->
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+                            <script src="~/Scripts/Charts/highcharts.js"></script>
+                            <script src="~/Scripts/Charts/highcharts-more.js"></script>
+                            <script src="~/Scripts/Charts/exporting.js"></script>
+                            <script src="~/Scripts/Charts/export-data.js"></script>
+                            <script src="~/Scripts/Charts/accessibility.js"></script>
+                            <div class="card-header"><i class="fas fa-chart-bar mr-1"></i>Biểu đồ</div>
+                            <div class="card-body"><div id="containerTK" style="min-width: 310px; height: 450px; max-width: 100%; margin: 0 auto"></div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="card-header"><i class="fas fa-chart-bar mr-1"></i>Biểu đồ</div>
+                            <div class="card-body"><div id="containerTK1" style="min-width: 310px; height: 450px; max-width: 100%; margin: 0 auto"></div></div>
+                        </div>
+                    </div>
+                    
+
+                    @*<div class="col-md-12">
+            <div class="card mb-4">
+                <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+                <script src="~/Scripts/Charts/highcharts.js"></script>
+                <script src="~/Scripts/Charts/exporting.js"></script>
+                <script src="~/Scripts/Charts/export-data.js"></script>
+                <script src="~/Scripts/Charts/accessibility.js"></script>
+                <div class="card-header"><i class="fas fa-chart-bar mr-1"></i>Biểu đồ nhân viên</div>
+                <div class="card-body"><div id="containerNV" style="min-width: 310px; height: 600px; max-width: 100%; margin: 0 auto"></div></div>
+            </div>
+        </div>*@
+
+                    
+                   
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+@section scripts{
+    <script>
+
+        //$(document).ready(function () {
+        //    $.getJSON("/Home/GetNV", function (data) {
+        //        Highcharts.chart('containerNV', {
+        //            chart: {
+        //                type: 'column'
+        //            },
+        //            title: {
+        //                text: ''
+        //            },
+        //            xAxis: {
+        //                categories: data.categories
+        //            },
+        //            yAxis: {
+        //                min: 0,
+        //                title: {
+        //                    text: 'Số lượng'
+        //                },
+        //                stackLabels: {
+        //                    enabled: true,
+        //                    style: {
+        //                        fontWeight: 'bold',
+        //                        color: ( // theme
+        //                            Highcharts.defaultOptions.title.style &&
+        //                            Highcharts.defaultOptions.title.style.color
+        //                        ) || 'gray'
+        //                    }
+        //                }
+        //            },
+        //            legend: {
+        //                align: 'right',
+        //                x: -30,
+        //                verticalAlign: 'top',
+        //                y: 25,
+        //                floating: true,
+        //                backgroundColor:
+        //                    Highcharts.defaultOptions.legend.backgroundColor || 'white',
+        //                borderColor: '#CCC',
+        //                borderWidth: 1,
+        //                shadow: false
+        //            },
+        //            tooltip: {
+        //                headerFormat: '<b>{point.x}</b><br/>',
+        //                pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+        //            },
+        //            plotOptions: {
+        //                column: {
+        //                    stacking: 'normal',
+        //                    dataLabels: {
+        //                        enabled: true
+        //                    }
+        //                }
+        //            },
+        //            series: data.series
+        //        });
+        //    });
+        //});
+
+        $(document).ready(function () {
+            $.getJSON("/Home/GetTK", function (data) {
+                Highcharts.chart('containerTK', {
+                    chart: {
+                        type: 'line'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    xAxis: {
+                        categories: data.categories
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Số lượng'
+                        }
+                    },
+                    plotOptions: {
+                        line: {
+                            dataLabels: {
+                                enabled: true
+                            },
+                            enableMouseTracking: false
+                        }
+                    },
+                    series: data.series
+                });
+            })
+        });
+
+        $(document).ready(function () {
+            $.getJSON("/Home/GetTK", function (data) {
+                Highcharts.chart('containerTK1', {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    xAxis: {
+                        categories: data.categories
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Số lượng'
+                        },
+                        stackLabels: {
+                            enabled: true,
+                            style: {
+                                fontWeight: 'bold',
+                                color: ( // theme
+                                    Highcharts.defaultOptions.title.style &&
+                                    Highcharts.defaultOptions.title.style.color
+                                ) || 'gray'
+                            }
+                        }
+                    },
+                    legend: {
+                        align: 'center',
+                        x: 30,
+                        verticalAlign: 'bottom',
+                        y: 25,
+                        floating: true,
+                        backgroundColor:
+                            Highcharts.defaultOptions.legend.backgroundColor || 'white',
+                        borderColor: '',
+                        borderWidth: 0,
+                        shadow: true
+                    },
+                    tooltip: {
+                        headerFormat: '<b>{point.x}</b><br/>',
+                        pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                    },
+                    plotOptions: {
+                        column: {
+                            stacking: 'normal',
+                            dataLabels: {
+                                enabled: false
+                            }
+                        }
+                    },
+                    series: data.series
+                });
+            })
+        });
+      
+       
+    </script>
+
+}
+

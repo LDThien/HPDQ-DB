@@ -1,0 +1,340 @@
+﻿@{
+    Layout = null;
+}
+@model HPDQ_Project.Models.DangKyValidation
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Danh sách tài khoản</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/libs/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link href="~/Content/css/PagedList.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>Danh sách tài khoản
+            <a href="#" onclick="AddNewDangKy(0)" class="btn btn-primary btn-sm pull-right "><i class="fa fa-plus">&nbsp;</i>&nbsp;Thêm mới</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="table" width="100%" cellspacing="0">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="text-center">STT</th>
+                            <th>Tên đăng nhập</th>
+                            <th>Họ tên</th>
+                            @*<th>Địa chỉ mail</th>*@
+                            <th>Phòng ban</th>
+                            <th>Quyền</th>
+                            <th width="200px" class="text-center">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="SetDangKyList">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @*Create A Popup Modal With Registration Form For Add DangKy Record*@
+
+    <div class="modal fade" id="MyModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="ModalTitle"></h5>
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                </div>
+                <div class="modal-body">
+                    <form id="form">
+                        <fieldset id="SubmitForm">
+                            @Html.HiddenFor(m => m.TKID, new { @id = "TKID" })
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputFirstName">Họ tên</label>
+                                        @Html.EditorFor(model => model.HoTen, new { @id = "HoTen", htmlAttributes = new { @class = "form-control", placeholder = "Nhập họ tên" } })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputLastName">Tên tài khoản</label>
+                                        @Html.EditorFor(model => model.TenDangNhap, new { @id = "TenDangNhap", htmlAttributes = new { @class = "form-control", placeholder = "Nhập tài khoản" } })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                @Html.EditorFor(model => model.Email, new { @id = "Email", htmlAttributes = new { @class = "form-control", placeholder = "Nhập địa chỉ email" } })
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputPassword">Mật khẩu</label>
+                                @Html.EditorFor(model => model.MatKhau, new { @id = "MatKhau", htmlAttributes = new { @class = "form-control", type = "password", placeholder = "Nhập mật khẩu" } })
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputConfirmPassword">Quyền đăng nhập</label>
+                                        @Html.DropDownListFor(m => m.MaQuyen, ViewBag.QuyenList as SelectList, "--Chọn quyền--", new { @id = "MaQuyen", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputPassword">Phòng ban</label>
+                                        @Html.DropDownListFor(m => m.MaPB, ViewBag.MaPB as SelectList, "--Chọn phòng ban--", new { @id = "MaPB", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <a href="#" class="btn btn-primary" id="InsertRecord">Thêm mới</a>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*Create A Popup Modal With Registration Form For Edit DangKy Record*@
+
+    <div class="modal fade" id="MyModalEdit">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="ModalTitleEdit"></h5>
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                </div>
+                <div class="modal-body">
+                    <form id="form">
+                        <fieldset id="SubmitFormEdit">
+                            @Html.HiddenFor(m => m.TKID, new { @id = "ID" })
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputFirstName">Họ tên</label>
+                                        @Html.EditorFor(model => model.HoTen, new { @id = "HT", htmlAttributes = new { @class = "form-control", placeholder = "Nhập họ tên" } })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputLastName">Tên tài khoản</label>
+                                        @Html.EditorFor(model => model.TenDangNhap, new { @id = "TDN", htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                @Html.EditorFor(model => model.Email, new { @id = "Mail", htmlAttributes = new { @class = "form-control", placeholder = "Nhập địa chỉ email" } })
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputConfirmPassword">Quyền đăng nhập</label>
+                                        @Html.DropDownListFor(m => m.MaQuyen, ViewBag.QuyenList as SelectList, "--Chọn quyền--", new { @id = "MQ", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputPassword">Phòng ban</label>
+                                        @Html.DropDownListFor(m => m.MaPB, ViewBag.MaPB as SelectList, "--Chọn phòng ban--", new { @id = "MaPB", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <a href="#" class="btn btn-primary" id="EditRecord">Cập nhật</a>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*Create A PopUp Modal For DeleteConfirmation*@
+
+    <div class="modal fade" id="DeleteConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h6>Bạn có muốn xóa bản ghi này không ?</h6>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-primary" data-dismiss="modal" id="r">Hủy</a>
+                    <a href="#" class="btn btn-danger" onclick="ConfirmDelete()">Đồng ý</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $("#LoadingStatus").html("Loading....");
+        $.get("/Register/GetDangKyList", null, DataBind);
+        function DataBind(DKList) {
+            var SetData = $("#SetDangKyList");
+            var RowNo = 1;
+            for (var i = 0; i < DKList.length; i++) {
+                var Data = "<tr class='row_" + DKList[i].TKID + "'>" +
+                    "<td class='text-center'>" + (RowNo++) + "</td>" +
+                    "<td>" + DKList[i].TenDangNhap + "</td>" +
+                    "<td>" + DKList[i].HoTen + "</td>" +
+                    //"<td>" + DKList[i].Email + "</td>" +
+                    "<td>" + DKList[i].TenPB + "</td>" +
+                    "<td>" + DKList[i].TenQuyen + "</td>" +
+                    "<td class = 'text-center'>" + "<a href='#' onclick='EditDangKyRecord(" + DKList[i].TKID + ")' ><i class='fa fa-edit'></i>&nbsp;Sửa&nbsp;</a>&nbsp;|&nbsp;<a href='#' onclick='DeleteDangKyRecord(" + DKList[i].TKID + ")'><i class='fa fa-trash'></i>&nbsp;Xóa</a>" +
+                    //if (DKList[i].MaQuyen != 1) {
+                    "&nbsp;|&nbsp;<a href='/Register/ResetPassword?TKID=" + DKList[i].TKID + "' title='ResetPassword'> <img src='/Content/images/img_264012.png' alt='ResetPassword' />" + "</a >" +
+                    //}
+                    "</td ></tr>";
+                SetData.append(Data);
+                $("#LoadingStatus").html(" ");
+
+            }
+        }
+
+        //Show The Popup Modal For Add New Student
+
+        function AddNewDangKy(TKID) {
+            $("#form")[0].reset();
+            $("#TKID").val(0);
+            $("#MaQuyen option:selected").text("--Chọn quyền--");
+            $("#MaBPXL option:selected").text("--Chọn phòng ban--");
+            $("#ModalTitle").html("Thêm tài khoản");
+            $("#MyModal").modal();
+
+        }
+
+        //Show The Popup Modal For Edit Student Record
+
+        function EditDangKyRecord(TKID) {
+            var url = "/Register/GetDangKyById?TKID=" + TKID;
+            $("#ModalTitleEdit").html("Cập nhật thông tin tài khoản");
+            $("#MyModalEdit").modal();
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function (data) {
+                    var obj = JSON.parse(data);
+                    $("#ID").val(obj.TKID);
+                    $("#TDN").val(obj.TenDangNhap);
+                    $("#Mail").val(obj.Email);
+                    $("#HT").val(obj.HoTen);
+                    $("#MQ option:selected").text(obj.QuyenDangNhap.TenQuyen);
+                    $("#MQ option:selected").val(obj.MaQuyen);
+                    $("#MBPXL option:selected").text(obj.BoPhanXuLy.TenBPXL);
+                    $("#MBPXL option:selected").val(obj.MaBPXL);
+
+                }
+            })
+        }
+        $("#EditRecord").click(function () {
+            var data = $("#SubmitFormEdit").serialize();
+            $.ajax({
+                type: "Post",
+                url: "/Register/EditInDatabase",
+                data: data,
+                success: function (result) {
+                    alert("Đã cập nhật thành công!..");
+                    window.location.href = "/Register/index";
+                    $("#MyModalEdit").modal("hide");
+
+                }
+            })
+        })
+
+
+        $("#InsertRecord").click(function () {
+            var data = $("#SubmitForm").serialize();
+            $.ajax({
+                type: "Post",
+                url: "/Register/InsertInDatabase",
+                data: data,
+                success: function (result) {
+                    alert("Đã thêm mới thành công!..");
+                    window.location.href = "/Register/index";
+                    $("#MyModal").modal("hide");
+
+                }
+            })
+        })
+
+        //Show The Popup Modal For DeleteComfirmation
+        var DeleteDangKyRecord = function (TKID) {
+            $("#TKID").val(TKID);
+            $("#DeleteConfirmation").modal("show");
+        }
+        var ConfirmDelete = function () {
+            var TKID = $("#TKID").val();
+            $.ajax({
+                type: "POST",
+                url: "/Register/DeleteDangKyRecord?TKID=" + TKID,
+                success: function (result) {
+                    $("#DeleteConfirmation").modal("hide");
+                    $(".row_" + TKID).remove();
+                }
+            })
+        }
+    </script>
+
+    @section scripts{
+        @*<script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+        <script src="~/Scripts/dataTables.buttons.min.js"></script>
+        <script src="~/Scripts/buttons.flash.min.js"></script>
+        <script src="~/Scripts/jszip.min.js"></script>
+        <script src="~/Scripts/pdfmake.min.js"></script>
+        <script src="~/Scripts/vfs_fonts.js"></script>
+        <script src="~/Scripts/buttons.html5.min.js"></script>
+        <script src="~/Scripts/buttons.print.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#table').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        {
+                            extend: 'copy',
+                            className: 'copyButton',
+                            text: '<i class="fa fa-clone"></i> Copy'
+                        },
+                        {
+                            extend: 'excel',
+                            text: '<i class="far fa-file-excel"></i> Excel'
+                        },
+                        {
+                            extend: 'pdf',
+                            text: '<i class="far fa-file-pdf"></i> Pdf'
+                        },
+                        {
+                            extend: 'csv',
+                            text: '<i class="fas fa-file-csv"></i> CSV'
+                        },
+                        {
+                            extend: 'print',
+                            text: '<i class="fa fa-print"></i> Print',
+                            customize: function (win) {
+                                $(win.document.body)
+                                    .css('font-size', '10pt')
+                                    .prepend(
+                                        '<img src="http://datatables.net/media/images/logo-fade.png" style="position:absolute; top:0; left:0;" />'
+                                    );
+
+                                $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                            }
+                        }
+                    ]
+                });
+            });
+        </script>
+        }
+    </body>
+</html>

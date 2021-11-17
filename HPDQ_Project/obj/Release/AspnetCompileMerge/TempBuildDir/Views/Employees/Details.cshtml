@@ -1,0 +1,86 @@
+﻿@{
+    Layout = null;
+}
+@model HPDQ_Project.Models.NhanVienValidation
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 id="ModalTitle"></h5>
+            <a href="#" class="close" data-dismiss="modal">&times;</a>
+        </div>
+        <div class="modal-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <fieldset id="SubmitForm">
+                <h3> <i class="fa fa-table"></i> Thông tin chung</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover" cellspacing="0">
+                        <tr>
+                            <td>Mã nhân viên:</td>
+                            <td> @Html.DisplayFor(model => model.MaNV)</td>
+                        </tr>
+                        <tr>
+                            <td>Tên nhân viên:</td>
+                            <td> @Html.DisplayFor(model => model.TenNV)</td>
+                        </tr>
+                        <tr>
+                            <td> Vị trí:</td>
+                            <td>
+                                @Html.DisplayFor(model => model.TenCV)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                BP / NM:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.TenPB)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Địa chỉ:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.DiaChi)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Số điện thoại:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.SDT)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Email)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Số nội bộ:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.SoMayLe)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Ngày vào làm
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.NgayVaoLam)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                @{Html.RenderAction("ListAccount", "Employees", new {id=Model.MaNV });}
+            </fieldset>
+
+        </div>
+    </div>
+</div>

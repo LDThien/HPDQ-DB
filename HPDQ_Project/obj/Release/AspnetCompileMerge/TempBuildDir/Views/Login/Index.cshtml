@@ -1,0 +1,150 @@
+﻿
+@{
+    Layout = null;
+}
+@model HPDQ_Project.Models.DangKyValidation
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Đăng nhập</title>
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/all.min.js"></script>
+</head>
+<body class="bg-light">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light">Đăng nhập</h3></div>
+                                <div class="card-body">
+
+                                    @using (Html.BeginForm("LoginUser", "Login", new { id = "myForm" }))
+                                    {
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputEmailAddress">Tài khoản</label>
+                                            @Html.TextBoxFor(m => m.TenDangNhap, new { @class = "form-control", @placeholder = "Tên đăng nhập" })
+                                            @Html.ValidationMessageFor(m => m.TenDangNhap, "", new { @class = "text-danger" })
+                                            <div id="show_error_user"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputPassword">Mật khẩu</label>
+                                            @Html.PasswordFor(m => m.MatKhau, new { @class = "form-control", @placeholder = "Mật khẩu" })
+                                            @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
+                                            <div id="show_error_pass"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+                                                <label class="custom-control-label" for="rememberPasswordCheck">Nhớ tài khoản</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <a class="small" href="">Quên mật khẩu?</a>
+                                            @*<a id="LoginUser" class="btn btn-primary" href="#" onclick="LoginUser()">Đăng nhập</a>*@
+                                            <input type="submit" value="Đăng nhập" class="btn btn-primary pull-left" id="LoginUser" />
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div id="layoutAuthentication_footer">
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Ban Công nghệ thông tin 2020</div>
+                        <div>
+                            <a href="#">Công ty CP Thép Hòa Phát Dung Quất</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+    @if (TempData["msg"] != null)
+    {
+        Html.Raw(TempData["msg"]);
+    }
+
+</body>
+</html>
+<script>
+    $("#MatKhau").keyup(function (event) {
+        if (event.keyCode == 13) {
+            // LoginUser();
+            $("#LoginUser").click();
+        }
+    });
+    var LoginUser = function () {
+
+        //var data = $("#myForm").serialize();
+        var tendangnhap = $('#TenDangNhap').val();
+        var matkhau = $('#MatKhau').val();
+        if (tendangnhap == "") {
+            $('#show_error_user').html('Nhập tài khoản!');
+            $('#show_error_user').css('color', 'red');
+            return false;
+        }
+        if (matkhau == "") {
+            $('#show_error_pass').html('Nhập mật khẩu!');
+            $('#show_error_pass').css('color', 'red');
+            return false;
+        }
+        //if (tendangnhap != "" && matkhau != "") {
+        //    $.ajax({
+        //        type: "Post",
+        //        url: "/Login/LoginUser",
+        //        data: data,
+        //        success: function (response) {
+        //            debugger
+        //            if (response == "fail") {
+
+        //                window.location.href = "Login";
+        //            }
+        //            else if (response == "Admin") {
+
+        //                window.location.href = "/Home/Index";
+        //            }
+        //            else {
+
+        //                window.location.href = "/Home/Index";
+        //            }
+        //        }
+        //    })
+        //}
+    }
+
+    $("#LoginUser").on('click', function () {
+        var tendangnhap = $('#TenDangNhap').val();
+        var matkhau = $('#MatKhau').val();
+        if (tendangnhap == "") {
+            $('#show_error_user').html('Nhập tài khoản!');
+            $('#show_error_user').css('color', 'red');
+            return false;
+        }
+        if (matkhau == "") {
+            $('#show_error_pass').html('Nhập mật khẩu!');
+            $('#show_error_pass').css('color', 'red');
+            return false;
+        }
+        if (tendangnhap != "" && matkhau != "") { return true; }
+        else { return false; }
+    })
+
+</script>
